@@ -27,7 +27,7 @@ export class GifsService {
       this._historial = this._historial.splice(0, 10);
     }
 
-    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=NUtLt9srQ8s42A159oiGdQlkl6GmwL88&q=${query}&limit=10`)
+    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${query}&limit=10`)
       .subscribe( (resp: any) => {
         console.log(resp.data);
         this.resultados = resp.data;
