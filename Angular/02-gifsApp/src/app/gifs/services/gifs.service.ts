@@ -9,7 +9,6 @@ export class GifsService {
   private apiKey: string = 'NUtLt9srQ8s42A159oiGdQlkl6GmwL88';
   private _historial: string[] = [];
 
-  //TODO: Cambiar any por su tipo
   public resultados: Gif[] = [];
 
   get historial() {
@@ -24,6 +23,7 @@ export class GifsService {
 
     //otra forma
     this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
 
   }
 
@@ -41,6 +41,7 @@ export class GifsService {
       .subscribe( (resp) => {
         console.log(resp.data);
         this.resultados = resp.data;
+        localStorage.setItem('resultados', JSON.stringify(this.resultados));
         //https://app.quicktype.io/
       });
 
