@@ -15,9 +15,9 @@ export class PaisService {
   buscarPais(termino: string): Observable<any>{
     const url = `${this.apiUrl}/name/${termino}`;
 
-    return this.http.get(url)
-    .pipe(
+    return this.http.get(url);
+    /*.pipe(
       catchError(err => of([]))
-    );
+    );*/
   }
 }
