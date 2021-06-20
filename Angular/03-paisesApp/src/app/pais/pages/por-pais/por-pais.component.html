@@ -17,32 +17,11 @@
 
 <hr />
 <div class="alert alert-danger" *ngIf="hayError">
-  No se encontró nada con el término "{{termino}}".
+  No se encontró nada con el término "{{ termino }}".
 </div>
 
-<div *ngIf="!hayError" class="row">
+<div *ngIf="paises.length > 0" class="row">
   <div class="col">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Bandera</th>
-          <th>Nombre</th>
-          <th>Población</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>bandera</td>
-          <td>nombre</td>
-          <td>15628</td>
-          <td>
-            <a href="/pais/ar">Ver...</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
   </div>
 </div>
