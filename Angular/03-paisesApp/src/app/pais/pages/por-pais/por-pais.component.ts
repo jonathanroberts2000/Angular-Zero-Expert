@@ -19,11 +19,16 @@ export class PorPaisComponent {
     this.hayError = false;
     this.termino = termino;
     this.paisService.buscarPais(termino)
-    .subscribe((paises) => { 
+    .subscribe((paises) => {
       this.paises = paises;
     }, () => {
       this.hayError = true;
       this.paises = [];
     });
+  }
+
+  sugerencias(termino: string): void {
+    this.hayError = false;
+    //TO DO Segurir
   }
 }
