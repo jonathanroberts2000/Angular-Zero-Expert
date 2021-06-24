@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
   styles: [],
 })
 export class PaisInputComponent implements OnInit {
-  @Input() placeholder!: string;
+  @Input() placeholder: string = '';
   @Output() onEnter: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
 
@@ -16,7 +16,7 @@ export class PaisInputComponent implements OnInit {
 
   termino: string = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.debouncer.pipe(debounceTime(300)).subscribe((valor) => {
       this.onDebounce.emit(valor);
     });
