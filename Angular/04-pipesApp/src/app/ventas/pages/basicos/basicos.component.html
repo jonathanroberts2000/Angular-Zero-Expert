@@ -32,6 +32,8 @@
       <ul>
         <li>fecha</li>
         <li>fecha | date</li>
+        <li>fecha | date: "short"</li>
+        <li>fecha | date: "long"</li>
       </ul>
     </p-card>
   </div>
@@ -40,7 +42,9 @@
     <p-card>
       <ul>
         <li>{{ fecha }}</li>
-        <li>{{fecha | date}}</li>
+        <li>{{ fecha | date }}</li>
+        <li>{{ fecha | date: "short" }}</li>
+        <li>{{ fecha | date: "long" }}</li>
       </ul>
     </p-card>
   </div>
