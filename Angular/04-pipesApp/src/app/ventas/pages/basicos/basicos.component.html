@@ -38,6 +38,11 @@
         <li>fecha | date: "MMMM"</li>
         <li>fecha | date: "MMMM dd, yyyy"</li>
       </ul>
+
+      <hr />
+      <ul>
+        <li></li>
+      </ul>
     </p-card>
   </div>
 
@@ -47,9 +52,15 @@
         <li>{{ fecha }}</li>
         <li>{{ fecha | date }}</li>
         <li>{{ fecha | date: "short" }}</li>
+        <li>{{ fecha | date: "long" }}</li>
         <li>{{ fecha | date: "dd-MM-yyyy" }}</li>
         <li>{{ fecha | date: "MMMM" }}</li>
         <li>{{ fecha | date: "MMMM dd, yyyy" }}</li>
+      </ul>
+
+      <hr />
+      <ul>
+        <li>{{ fecha | date: "long":"GMT-6" }}</li>
       </ul>
     </p-card>
   </div>
