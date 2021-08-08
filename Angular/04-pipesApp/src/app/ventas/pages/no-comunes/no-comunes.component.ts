@@ -15,7 +15,7 @@ export class NoComunesComponent {
     femenino: 'invitarla',
   };
 
-  //i18nPlural
+  //i18nPlural - Slice
   clientes: string[] = ['Maria', 'Pedro', 'Hernando', 'Eduardo', 'Jonathan'];
   clienteMapa = {
     '=0': 'no tenemos ningún cliente esperando.',
@@ -30,5 +30,12 @@ export class NoComunesComponent {
 
   borrarCliente(): void {
     this.clientes.pop();
+  }
+
+  //KeyValue Pipe
+  persona = {
+    nombre: 'Jonathan',
+    edad: 20,
+    direccion: 'Lanús Oeste, Argentina'
   }
 }
