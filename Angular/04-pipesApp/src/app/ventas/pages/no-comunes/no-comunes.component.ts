@@ -36,6 +36,22 @@ export class NoComunesComponent {
   persona = {
     nombre: 'Jonathan',
     edad: 20,
-    direccion: 'Lanús Oeste, Argentina'
-  }
+    direccion: 'Lanús Oeste, Argentina',
+  };
+
+  //Json Pipe
+  heroes = [
+    {
+      nombre: 'Superman',
+      vuela: true,
+    },
+    {
+      nombre: 'Robin',
+      vuela: false,
+    },
+    {
+      nombre: 'Aquaman',
+      vuela: false,
+    },
+  ];
 }
