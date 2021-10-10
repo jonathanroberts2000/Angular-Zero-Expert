@@ -7,12 +7,14 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-heroe',
   templateUrl: './heroe.component.html',
-  styles: [`
-    img {
-      width: 100%;
-      border-radius: 5px;
-    }
-  `],
+  styles: [
+    `
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    `,
+  ],
 })
 export class HeroeComponent implements OnInit {
   heroe!: Heroe;
@@ -25,6 +27,6 @@ export class HeroeComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       .pipe(switchMap(({ id }) => this.heroesService.getHeroePorId(id)))
-      .subscribe( heroe => this.heroe = heroe);
+      .subscribe((heroe) => (this.heroe = heroe));
   }
 }
