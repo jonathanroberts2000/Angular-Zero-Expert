@@ -7,8 +7,12 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [
-  ]
+  styles: [`
+    img{
+      width: 100%;
+      border-radius: 10px;
+    }
+  `]
 })
 export class AgregarComponent implements OnInit {
 
@@ -35,6 +39,10 @@ export class AgregarComponent implements OnInit {
   constructor(private heroesService: HeroesService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.router.url.includes("editar")){
+      return;
+    }
+
     this.activatedRoute.params.pipe(
       switchMap( ({id}) => this.heroesService.getHeroePorId(id))
     ).subscribe(heroe => this.heroe = heroe);
