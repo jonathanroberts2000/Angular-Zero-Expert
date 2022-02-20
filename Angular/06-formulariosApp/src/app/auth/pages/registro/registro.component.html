@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col">
-    <form autocomplete="off" [formGroup]="miFormulario">
+    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="submitFormulario()">
       <!--NOMBRE-->
       <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Nombre</label>
@@ -47,7 +47,7 @@
 
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end">Crear</button>
+          <button class="btn btn-primary float-end" type="submit">Crear</button>
         </div>
       </div>
 
@@ -57,5 +57,5 @@
 
 <h2>Form Valid: {{miFormulario.valid}}</h2>
 
-<h2>Nombre</h2>
+<h5>Nombre</h5>
 <pre>{{miFormulario.controls['nombre'].errors | json}}</pre>
