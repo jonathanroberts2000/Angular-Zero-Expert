@@ -1,3 +1,4 @@
+import { EmailValidatorService } from './../../../shared/validator/email-validator.service';
 import { ValidatorService } from './../../../shared/validator/validator.service';
 //import { nombreApellidoPattern, emailPattern, noPuedeSerStrider } from './../../../shared/validator/validaciones';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -15,7 +16,7 @@ export class RegistroComponent implements OnInit {
     //nombre: ['', [Validators.required, Validators.pattern(nombreApellidoPattern)]],
     nombre: ['', [Validators.required, Validators.pattern(this.validatorService.nombreApellidoPattern)]],
     //email: ['', [Validators.required, Validators.pattern(emailPattern)]],
-    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)], [this.emailValidator]],
     //username: ['', [Validators.required, noPuedeSerStrider]]
     username: ['', [Validators.required, this.validatorService.noPuedeSerStrider]],
     password: ['', [Validators.required, Validators.minLength(6)]],
@@ -24,7 +25,7 @@ export class RegistroComponent implements OnInit {
     validators: [this.validatorService.camposIguales('password', 'password2')]
   });
 
-  constructor(private fb: FormBuilder, private validatorService: ValidatorService) { }
+  constructor(private fb: FormBuilder, private validatorService: ValidatorService, private emailValidator: EmailValidatorService) { }
 
   ngOnInit(): void {
     this.miFormulario.reset({
