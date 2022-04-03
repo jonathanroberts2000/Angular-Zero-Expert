@@ -41,7 +41,21 @@ export class RegistroComponent implements OnInit {
     return this.miFormulario.get(campo)?.invalid && this.miFormulario.get(campo)?.touched;
   }
 
-  emailRequired(): boolean {
+  get emailErrorMsg(): string {
+    const errors = this.miFormulario.get('email')?.errors;
+
+    if(errors?.['required']){
+      return 'El campo es requerido';
+    }else if(errors?.['pattern']){
+      return 'El valor ingresado no tiene formato de correo';
+    }else if(errors?.['emailTomado']){
+      return 'El correo ya fue tomado';
+    }
+
+    return '';
+  }
+
+  /*emailRequired(): boolean {
     return this.miFormulario.get('email')?.errors?.['required'] && this.miFormulario.get('email')?.touched;
   }
 
@@ -51,7 +65,7 @@ export class RegistroComponent implements OnInit {
 
   emailTomado(): boolean {
     return this.miFormulario.get('email')?.errors?.['emailTomado'] && this.miFormulario.get('email')?.touched;
-  }
+  }*/
 
   submitFormulario(): void{
     console.log(this.miFormulario.value);
